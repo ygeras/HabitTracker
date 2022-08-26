@@ -23,7 +23,6 @@ class Activities: ObservableObject {
                 return
             }
         }
-        
         activities = []
     }
 }

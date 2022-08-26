@@ -19,24 +19,17 @@ struct AddActivity: View {
         NavigationView {
             VStack {
                 VStack(spacing: 20) {
-                    TextField("Title", text: $title)
-                        .padding()
-                        .background(Color(UIColor.systemBackground))
-                        .cornerRadius(15)
-                        .shadow(radius: 5)
-                    TextField("Description", text: $description)
-                        .padding()
-                        .background(Color(UIColor.systemBackground))
-                        .cornerRadius(15)
-                        .shadow(radius: 5)
-                    TextField("Target", value: $target, format: .number)
-                        .padding()
-                        .background(Color(UIColor.systemBackground))
-                        .foregroundColor(.gray)
-                        .cornerRadius(15)
-                        .shadow(radius: 5)
-                        .keyboardType(.numberPad)
-                   
+                    Group {
+                        TextField("Title", text: $title)
+                        TextField("Description", text: $description)
+                        TextField("Target", value: $target, format: .number)
+                            .foregroundColor(.gray)
+                            .keyboardType(.numberPad)
+                    }
+                    .padding()
+                    .background(Color(UIColor.systemBackground))
+                    .cornerRadius(15)
+                    .shadow(radius: 5)
                 }
                 .padding(20)
                 .background(Color.blue.opacity(0.9))
@@ -57,7 +50,6 @@ struct AddActivity: View {
                     dismiss()
                 }
             }
-           
         }
     }
 }

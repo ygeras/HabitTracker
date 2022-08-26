@@ -18,50 +18,77 @@ struct ActivityView: View {
     }
     
     var body: some View {
-        List {
-            Section {
-                if activity.description.isEmpty == false {
-                    Text(activity.description)
+        GeometryReader { geometry in
+            ZStack {
+                List {
+                    Section {
+                        if activity.description.isEmpty == false {
+                            Text(activity.description)
+                        }
+                    } header: {
+                        Text("Description")
+                    }
+                    
+                    Section {
+                        Text("Completion count: \(activity.completionCount)")
+                        HStack {
+                            Text("Your target: \(activity.target)")
+                            Spacer()
+                            Image(systemName: "hand.tap")
+                        }
+                        .contextMenu {
+//                            Button {
+//                                // code goes here
+//                            } label: {
+//                                Text("Edit target")
+//                                Image(systemName: "square.and.pencil")
+//                            }
+                        }
+                    } header: {
+                        Text("Statistics")
+                    }
                 }
+                .overlay(alignment: .bottom) {
+                    VStack(spacing: 40) {
+                        Ring(lineWidth: 40, gradientColor: ringColor, dotColor: .blue, percentage: percentageCompletion, insetAmount: 0)
+                            .animation(.easeInOut, value: percentageCompletion)
+                            .frame(width: geometry.size.width / 1.3, height: geometry.size.width / 1.3)
+                            .overlay {
+                                Text(percentageCompletion, format: .percent)
+                                    .font(.title2).fontWeight(.light)
+                            }
+                        
+                        Button(action: {
+                            var newActivity = activity
+                            newActivity.completionCount += 1
+                            
+                            if let index = data.activities.firstIndex(of: activity) {
+                                data.activities[index] = newActivity
+                            }
+                        }, label: {
+                            Text("Mark completed")
+                        })
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.blue.opacity(0.9))
+                        .cornerRadius(15)
+                        .shadow(radius: 5)
+                    }
+                }
+                .navigationTitle(activity.title)
+                .navigationBarTitleDisplayMode(.inline)
             }
-            
-            Section {
-                Text("Completion count: \(activity.completionCount)")
-                Text("Your target: \(activity.target)")
-            }
-          
         }
-        .overlay(
-            Button(action: {
-                var newActivity = activity
-                newActivity.completionCount += 1
-                
-                if let index = data.activities.firstIndex(of: activity) {
-                    data.activities[index] = newActivity
-                }
-            }, label: {
-                Text("Mark completed")
-                    .font(.title3)
-            })
-            .padding()
-            .foregroundColor(.white)
-            .background(Color.blue.opacity(0.9))
-            .cornerRadius(15)
-            .shadow(radius: 5)
-            .offset(y: -50)
-        )
-        .overlay(alignment: Alignment(horizontal: .center, vertical: .bottom), content: {
-            Ring(lineWidth: 40, gradientColor: ringColor, dotColor: .blue, percentage: percentageCompletion, insetAmount: 20)
-                .frame(width: 300, height: 300)
-                .animation(.easeInOut, value: percentageCompletion)
-        })
-        .navigationTitle(activity.title)
     }
 }
 
 struct ActivityView_Previews: PreviewProvider {
     static var previews: some View {
         ActivityView(data: Activities(), activity: Activity.example)
+            
+            
+            
+            
             
     }
 }

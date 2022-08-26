@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B141D998284CC6090015EA91 /* Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = B141D997284CC6090015EA91 /* Ring.swift */; };
 		B141D99A284CC6130015EA91 /* RingShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = B141D999284CC6130015EA91 /* RingShape.swift */; };
+		B16A830128B8BA0100254A97 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B16A830028B8BA0100254A97 /* README.md */; };
 		B1717002284B3DBE00A38779 /* HabitTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1717001284B3DBE00A38779 /* HabitTrackerApp.swift */; };
 		B1717004284B3DBE00A38779 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1717003284B3DBE00A38779 /* ContentView.swift */; };
 		B1717006284B3DC000A38779 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1717005284B3DC000A38779 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		B141D997284CC6090015EA91 /* Ring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ring.swift; sourceTree = "<group>"; };
 		B141D999284CC6130015EA91 /* RingShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingShape.swift; sourceTree = "<group>"; };
+		B16A830028B8BA0100254A97 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B1716FFE284B3DBE00A38779 /* HabitTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1717001284B3DBE00A38779 /* HabitTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTrackerApp.swift; sourceTree = "<group>"; };
 		B1717003284B3DBE00A38779 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -47,6 +49,7 @@
 		B1716FF5284B3DBE00A38779 = {
 			isa = PBXGroup;
 			children = (
+				B16A830028B8BA0100254A97 /* README.md */,
 				B1717000284B3DBE00A38779 /* HabitTracker */,
 				B1716FFF284B3DBE00A38779 /* Products */,
 			);
@@ -143,6 +146,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B16A830128B8BA0100254A97 /* README.md in Resources */,
 				B1717009284B3DC000A38779 /* Preview Assets.xcassets in Resources */,
 				B1717006284B3DC000A38779 /* Assets.xcassets in Resources */,
 			);
